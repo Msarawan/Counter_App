@@ -86,9 +86,9 @@ export const FormPage:FC= () => {
     if (name && email && phone && date) {
       setButtonClicked(!buttonClicked);
 
-      setAlerts((prevAlerts) => {
+      setAlerts((prevState) => {
         return [
-          ...prevAlerts,
+          ...prevState,
           <Alert
             variant={AlertVariant["success"]}
             title="Thank You"
