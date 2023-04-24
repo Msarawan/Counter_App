@@ -12,9 +12,8 @@ function App() {
   return (
         <>
             <Breadcrumb>
-              <BreadcrumbItem to="/">Section home</BreadcrumbItem>
-              <BreadcrumbItem to="/form">Form</BreadcrumbItem>
-              <BreadcrumbItem to="#">Section title</BreadcrumbItem>
+              <BreadcrumbItem to="/">Counter Page</BreadcrumbItem>
+              <BreadcrumbItem to="/form">Form Page</BreadcrumbItem>
               <BreadcrumbItem to="#" isActive>
                 Section landing
               </BreadcrumbItem>

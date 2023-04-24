@@ -28,7 +28,7 @@ export const FormPage:FC= () => {
   const [validated, setValidated] = React.useState<validate>("error");
   const [date, setDate] = React.useState('yyyy-mm-dd');
   const [isCalendarOpen, setIsCalendarOpen] = React.useState(false);
-  const [alerts, setAlerts] = React.useState<React.ReactNode[]>([]);
+  const [showAlert, setShowAlert] = React.useState<boolean>(false);
   const [buttonClicked, setButtonClicked] = React.useState(false);
 
   const handleNameChange = (name:string) => {
@@ -85,29 +85,25 @@ export const FormPage:FC= () => {
     e.preventDefault();
     if (name && email && phone && date) {
       setButtonClicked(!buttonClicked);
-
-      setAlerts((prevState) => {
-        return [
-          ...prevState,
-          <Alert
-            variant={AlertVariant["success"]}
-            title="Thank You"
-            actionClose={
-              <AlertActionCloseButton
-                variantLabel={`alert`}
-                onClose={() => setAlerts([])}
-              />
-            }
-          >
-            The form is successfully Submitted
-          </Alert>,
-        ];
-      });
+      setShowAlert(true)
     }
   };
 
   return (
     <div className='content'>
+      {showAlert && 
+      <Alert
+            variant={AlertVariant["success"]}
+            title="Thank You"
+            actionClose={
+              <AlertActionCloseButton
+                variantLabel={`alert`}
+                onClose={() => setShowAlert(!showAlert) }
+              />
+            }
+          >
+            The form is successfully Submitted
+        </Alert> }
     <Form isWidthLimited onSubmit={ (e:React.FormEvent<HTMLFormElement>):void =>{e.preventDefault() 
     }} >
      <FormGroup
@@ -241,7 +237,7 @@ export const FormPage:FC= () => {
               Submit
             </Button>
             <AlertGroup isToast isLiveRegion>
-              {alerts}
+              {showAlert}
             </AlertGroup>
           </ActionListItem>
         </ActionList>
