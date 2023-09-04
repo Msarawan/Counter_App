@@ -8,6 +8,7 @@ import {
 } from "@patternfly/react-core";
 import {FormSection} from "./components/FormSection";
 import { TemperatureConverter } from "./components/TemperatureConverter";
+import { Calculator } from "./components/Calculator";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
               <BreadcrumbItem to="/">Counter Page</BreadcrumbItem>
               <BreadcrumbItem to="/form">Form Page</BreadcrumbItem>
               <BreadcrumbItem to="/temperature">Temperature Convertor</BreadcrumbItem>
+              <BreadcrumbItem to="/calculator">Calculator</BreadcrumbItem>
               <BreadcrumbItem to="#" isActive>
                 Section landing
               </BreadcrumbItem>
@@ -24,6 +26,7 @@ function App() {
               <Route path="/" element={<Counter initialValue={0} />} />
               <Route path="/form" element={<FormSection />} />
               <Route path="/temperature" element={<TemperatureConverter />} />
+              <Route path="/calculator" element={<Calculator/>} />
             </Routes>
         </>
   );
